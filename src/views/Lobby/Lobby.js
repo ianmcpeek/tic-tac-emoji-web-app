@@ -97,11 +97,11 @@ function Lobby() {
             // update state
             if (id !== undefined) {
                 setLobbyState(invitedState(message.data));
-                send(JSON.stringify({
+                send({
                     type: 'join-room',
                     code: id,
                     participantId: message.data.participantId
-                }));
+                });
             } else {
                 setLobbyState(inviteState(message.data));
             }
@@ -169,12 +169,12 @@ function Lobby() {
         state.player.ready = ready;
         setLobbyState(state);
         // send
-        send(JSON.stringify({
+        send({
             type: 'ready-changed',
             code: state.roomCode,
             participantId: state.player.id,
             ready
-        }));
+        });
     }
 
     function onAvatarChanged(avatar) {
@@ -184,32 +184,32 @@ function Lobby() {
         setLobbyState(state);
         // send
 
-        send(JSON.stringify({
+        send({
             type: 'avatar-changed',
             code: state.roomCode,
             participantId: state.player.id,
             avatar: avatar.id
-        }));
+        });
     }
 
     function onTileClicked(position) {
         const state = { ...lobbyState };
 
-        send(JSON.stringify({
+        send({
             type: 'make-move',
             code: state.roomCode,
             participantId: state.player.id,
             position
-        }));
+        });
     }
 
     function onPlayAgain() {
         const state = { ...lobbyState };
 
-        send(JSON.stringify({
+        send({
             type: 'game-reset',
             code: state.roomCode
-        }))
+        })
     }
 
     return (

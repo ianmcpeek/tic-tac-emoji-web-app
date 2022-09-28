@@ -1,5 +1,6 @@
 
 import { useState, useRef, useEffect } from 'react';
+import { io } from 'socket.io-client';
 
 // optionally pass in URL
 function useWebsocket() {
@@ -9,22 +10,14 @@ function useWebsocket() {
 
     useEffect(() => {
         // local config
-        // const socket = new WebSocket('ws://ec2-52-11-88-27.us-west-2.compute.amazonaws.com:8080');
-        const socket = new WebSocket('ws://tictacrivals.com');
-
-                
-        socket.onopen = () => setOpen(true);
-        socket.onclose = () => setOpen(false);
-        socket.onmessage = (message) => {
-            let json = null;
-            try {
-                json = JSON.parse(message.data);
-            } catch (e) {
-                console.log('invalid JSON: ', message.data);
-                return;
-            }
-            setMessage(json);
-        };
+        const socket = io();
+        socket.on('connect', () => {
+            console.log('I connected!');
+            setOpen(true);
+        });
+        socket.on('message', message => {
+            setMessage(message);
+        });
 
         ws.current = socket;
 
