@@ -1,0 +1,88 @@
+
+.carosel {
+    position: relative;
+    width: 100%;
+    background-color: white;
+    height: 40px;
+  }
+  
+  .carosel .bumper--left {
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    left: 0;
+    background-color: #ffffff;
+    z-index: 2;
+  }
+  .carosel .bumper--right {
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    right: 0;
+    background-color: #ffffff;
+    z-index: 2;
+  }
+  
+  .carosel .content {
+    text-align: left;
+    padding: 0 20px;
+    
+    /* animation: move-right infinite 2s linear; */
+  }
+  
+  .emoji-icon {
+    font-size: 30px;
+    width: auto;
+    height: 45px;
+  }
+  
+  .footer {
+    background-color: black;
+    height: 245px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+  
+  .footer-label {
+    display: block;
+    padding-top: 10px;
+    font-size: 28px;
+    font-weight: 100;
+    color: white;
+  }
+  
+  .copy-notification {
+    font-size: 22px;
+    font-weight: 100;
+    color: white;
+  }
+  
+  .copy-button {
+    font-size: 22px;
+    width: fit-content;
+    padding: 5px;
+  }
+  
+  .link {
+    background-color: white;
+    border: 0;
+    padding: 10px;
+    font-size: 22px;
+    color: black;
+    font-weight: 500;
+    width: 90%;
+    text-align: center;
+  }
+
+  .emojis {
+    font-size: 36px;
+    padding: 20px;
+    width: 500px;
+    animation: move-right infinite 2s linear;
+  }
+
+  .scroller {
+  }
