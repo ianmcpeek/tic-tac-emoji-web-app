@@ -10,7 +10,7 @@ function useWebsocket() {
     useEffect(() => {
         // local config
         // const socket = new WebSocket('ws://ec2-52-11-88-27.us-west-2.compute.amazonaws.com:8080');
-        const socket = new WebSocket('ws://localhost:3000');
+        const socket = new WebSocket('ws://localhost:3000/ws/');
 
                 
         socket.onopen = () => setOpen(true);
